@@ -1,0 +1,11 @@
+{
+  "version": 1,
+  "skills": {
+    "visual": {
+      "source": "nick-vels/VelsVisual",
+      "sourceType": "github",
+      "skillPath": "skills/visual/SKILL.md",
+      "computedHash": "12f06691919cf5e9702d9a232cade93ccd65a71aaad0570351a862e60637c2dd"
+    }
+  }
+}
