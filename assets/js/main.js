@@ -79,19 +79,21 @@
   const canvas = $('[data-embers]');
 
   if (media && img) {
-    const [ox, oy] = (img.dataset.outlet || '0.8 0.45').split(' ').map(Number);
+    const mobileMq = window.matchMedia('(max-width: 900px)');
     let outlet = { x: 0, y: 0 };
 
-    // пересчёт координат точки выхлопа с учётом object-fit: cover
+    // координаты точки выхлопа с учётом object-fit: cover, object-position и scale(1.04) от центра
     const placeOutlet = () => {
+      const attr = (mobileMq.matches && img.dataset.outletMobile) || img.dataset.outlet || '0.9 0.45';
+      const [ox, oy] = attr.split(' ').map(Number);
       const w = media.clientWidth, h = media.clientHeight;
-      const iw = img.naturalWidth || 1472, ih = img.naturalHeight || 1480;
-      const scale = Math.max(w / iw, h / ih) * 1.04;
+      const iw = img.naturalWidth || 1586, ih = img.naturalHeight || 992;
+      const scale = Math.max(w / iw, h / ih);
       const pos = getComputedStyle(img).objectPosition.split(' ').map((v) => parseFloat(v) / 100);
       const rw = iw * scale, rh = ih * scale;
-      const offX = (w - rw) * (isNaN(pos[0]) ? 0.5 : pos[0]);
-      const offY = (h - rh) * (isNaN(pos[1]) ? 0.5 : pos[1]);
-      outlet = { x: offX + rw * ox, y: offY + rh * oy };
+      const x = (w - rw) * (isNaN(pos[0]) ? 0.5 : pos[0]) + rw * ox;
+      const y = (h - rh) * (isNaN(pos[1]) ? 0.5 : pos[1]) + rh * oy;
+      outlet = { x: w / 2 + (x - w / 2) * 1.04, y: h / 2 + (y - h / 2) * 1.04 };
       glow.style.setProperty('--gx', outlet.x + 'px');
       glow.style.setProperty('--gy', outlet.y + 'px');
       if (canvas) {
@@ -102,6 +104,7 @@
     };
     if (img.complete) placeOutlet(); else img.addEventListener('load', placeOutlet);
     window.addEventListener('resize', placeOutlet);
+    img.addEventListener('load', placeOutlet);
     setTimeout(() => media.classList.add('is-ready'), 2600);
 
     // искры / тёплые частицы из выхода отопителя
@@ -110,11 +113,11 @@
       const parts = [];
       let running = true;
       const spawn = () => {
-        const a = (-0.35 + Math.random() * 0.5);            // направление: вправо и немного вверх
-        const sp = 0.6 + Math.random() * 1.8;
+        const a = -Math.PI / 2 + (Math.random() - 0.65) * 1.6; // вверх, с уходом влево
+        const sp = 0.4 + Math.random() * 1.4;
         parts.push({
-          x: outlet.x + (Math.random() - 0.5) * 30,
-          y: outlet.y + (Math.random() - 0.5) * 60,
+          x: outlet.x + (Math.random() - 0.7) * 70,
+          y: outlet.y + (Math.random() - 0.5) * 90,
           vx: Math.cos(a) * sp, vy: Math.sin(a) * sp - Math.random() * 0.4,
           life: 0, max: 60 + Math.random() * 90,
           r: 0.6 + Math.random() * 1.8,
@@ -134,7 +137,7 @@
           p.vx += (Math.random() - 0.5) * 0.08;       // турбулентность
           p.x += p.vx; p.y += p.vy;
           const t = p.life / p.max;
-          if (t >= 1 || p.x > w + 20 || p.y < -20) { parts.splice(i, 1); continue; }
+          if (t >= 1 || p.x > w + 20 || p.x < -20 || p.y < -20) { parts.splice(i, 1); continue; }
           const alpha = Math.sin(Math.PI * t) * 0.9;
           const g = ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, p.r * 4);
           g.addColorStop(0, `hsla(${p.hue + 20}, 100%, 75%, ${alpha})`);

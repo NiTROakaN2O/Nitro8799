@@ -132,14 +132,10 @@ em { font-style: normal; color: var(--accent); }
   display: flex; flex-direction: column; justify-content: center;
   padding: calc(var(--header-h) + 28px) 0 0; overflow: hidden; isolation: isolate;
 }
-.hero__media {
-  position: absolute; z-index: -2; top: 0; right: 0; bottom: 0; width: 64%;
-  -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 34%);
-          mask-image: linear-gradient(90deg, transparent 0%, #000 34%);
-}
+.hero__media { position: absolute; z-index: -2; inset: 0; }
 .hero__media picture, .hero__media img { width: 100%; height: 100%; }
 .hero__media img {
-  object-fit: cover; object-position: 60% 45%;
+  object-fit: cover; object-position: 100% 50%;
   transform: scale(1.12) translate3d(var(--px, 0), var(--py, 0), 0);
   animation: heroIn 2.6s var(--ease-out) forwards;
   filter: saturate(1.05) contrast(1.05);
@@ -150,7 +146,7 @@ em { font-style: normal; color: var(--accent); }
 /* пульсирующее свечение у выхода горячего воздуха */
 .hero__glow {
   position: absolute; left: var(--gx, 80%); top: var(--gy, 45%);
-  width: 46vmax; height: 46vmax; translate: -30% -50%; pointer-events: none;
+  width: 40vmax; height: 40vmax; translate: -50% -50%; pointer-events: none;
   background: radial-gradient(closest-side, rgba(255, 110, 40, .55), rgba(255, 75, 22, .22) 40%, transparent 72%);
   mix-blend-mode: screen; filter: blur(6px);
   animation: flicker 3.2s ease-in-out infinite;
@@ -167,8 +163,8 @@ em { font-style: normal; color: var(--accent); }
 .hero__shade {
   position: absolute; inset: 0; z-index: -1; pointer-events: none;
   background:
-    linear-gradient(90deg, var(--bg) 0%, rgba(8,9,11,.92) 30%, rgba(8,9,11,.35) 55%, rgba(8,9,11,0) 75%),
-    linear-gradient(0deg, var(--bg) 0%, rgba(8,9,11,.6) 18%, rgba(8,9,11,0) 40%),
+    linear-gradient(90deg, rgba(8,9,11,.85) 0%, rgba(8,9,11,.55) 35%, rgba(8,9,11,0) 60%),
+    linear-gradient(0deg, var(--bg) 0%, rgba(8,9,11,.55) 14%, rgba(8,9,11,0) 32%),
     linear-gradient(180deg, rgba(8,9,11,.7) 0%, rgba(8,9,11,0) 18%);
 }
 
@@ -207,8 +203,10 @@ em { font-style: normal; color: var(--accent); }
 .hero__brands li { display: flex; align-items: center; padding: 4px 28px; }
 .hero__brands li:first-child { padding-left: 0; }
 .hero__brands li + li { border-left: 1px solid var(--line-strong); }
-.hero__brands svg { height: 34px; width: auto; transition: transform .4s var(--ease), filter .4s; }
-.hero__brands li:hover svg { transform: translateY(-2px); filter: drop-shadow(0 6px 16px rgba(255,255,255,.12)); }
+.hero__brands img, .hero__brands svg { height: 34px; width: auto; transition: transform .4s var(--ease), filter .4s; }
+.hero__brands .logo-webasto { height: 30px; }
+.hero__brands .logo-eber { height: 38px; }
+.hero__brands li:hover img, .hero__brands li:hover svg { transform: translateY(-2px); filter: drop-shadow(0 6px 16px rgba(255,255,255,.12)); }
 
 .hero__cta { margin-top: clamp(22px, 3.4vh, 40px); display: flex; flex-wrap: wrap; gap: 16px; }
 
@@ -332,6 +330,8 @@ section { position: relative; }
 .brand:hover::before { opacity: 1; }
 .brand__logo { position: relative; height: clamp(34px, 3vw, 46px); width: auto; align-self: flex-start; transition: transform .5s var(--ease); }
 .brand:hover .brand__logo { transform: translateX(6px); }
+.brand__logo.logo-webasto { height: clamp(30px, 2.6vw, 40px); }
+.brand__logo.logo-eber { height: clamp(38px, 3.3vw, 52px); }
 .brand__type { position: relative; font-size: 14px; color: var(--muted); letter-spacing: .04em; }
 
 .marquee { margin-top: clamp(64px, 8vw, 120px); overflow: hidden; border-block: 1px solid var(--line); padding: 22px 0; }
@@ -476,8 +476,7 @@ section { position: relative; }
 
 @media (max-width: 1100px) {
   .header__phone { display: none; }
-  .hero__media { width: 78%; }
-  .hero__shade { background: linear-gradient(90deg, var(--bg) 0%, rgba(8,9,11,.88) 40%, rgba(8,9,11,.3) 80%), linear-gradient(0deg, var(--bg) 0%, rgba(8,9,11,0) 40%); }
+  .hero__shade { background: linear-gradient(90deg, var(--bg) 0%, rgba(8,9,11,.8) 45%, rgba(8,9,11,.2) 85%), linear-gradient(0deg, var(--bg) 0%, rgba(8,9,11,0) 40%); }
   .hero__facts { grid-template-columns: repeat(2, 1fr); row-gap: 24px; }
   .hero__facts li:nth-child(3) { border-left: 0; padding-left: 0; }
   .maint__inner, .faq__inner, .contact__inner { grid-template-columns: 1fr; }
@@ -503,8 +502,8 @@ section { position: relative; }
   .header.menu-open { background: var(--bg); border-color: var(--line); }
 
   .hero { justify-content: flex-end; }
-  .hero__media { width: 100%; height: 62%; bottom: auto; -webkit-mask-image: linear-gradient(180deg, #000 55%, transparent 100%); mask-image: linear-gradient(180deg, #000 55%, transparent 100%); }
-  .hero__media img { object-position: 75% 40%; }
+  .hero__media { height: 64%; bottom: auto; -webkit-mask-image: linear-gradient(180deg, #000 55%, transparent 100%); mask-image: linear-gradient(180deg, #000 55%, transparent 100%); }
+  .hero__media img { object-position: 70% 50%; }
   .hero__shade { background: linear-gradient(0deg, var(--bg) 35%, rgba(8,9,11,.55) 62%, rgba(8,9,11,.25) 100%); }
   .hero__inner { padding-top: 28vh; }
 
@@ -529,7 +528,9 @@ section { position: relative; }
   .hero__title { font-size: clamp(34px, 12.4vw, 64px); }
   .hero__brands { flex-wrap: nowrap; }
   .hero__brands li { padding: 2px 12px; }
-  .hero__brands svg { height: 19px; }
+  .hero__brands img, .hero__brands svg { height: 19px; }
+  .hero__brands .logo-webasto { height: 17px; }
+  .hero__brands .logo-eber { height: 22px; }
   .hero__cta { width: 100%; }
   .hero__cta .btn { flex: 1 1 100%; --h: 58px; }
   .hero__facts { grid-template-columns: 1fr 1fr; gap: 20px 0; padding-bottom: 24px; }
