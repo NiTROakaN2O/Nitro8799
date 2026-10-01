@@ -206,6 +206,7 @@ em { font-style: normal; color: var(--accent); }
 .hero__brands img, .hero__brands svg { height: 34px; width: auto; transition: transform .4s var(--ease), filter .4s; }
 .hero__brands .logo-webasto { height: 30px; }
 .hero__brands .logo-eber { height: 38px; }
+.hero__brands .logo-planar { height: 40px; }
 .hero__brands li:hover img, .hero__brands li:hover svg { transform: translateY(-2px); filter: drop-shadow(0 6px 16px rgba(255,255,255,.12)); }
 
 .hero__cta { margin-top: clamp(22px, 3.4vh, 40px); display: flex; flex-wrap: wrap; gap: 16px; }
@@ -332,6 +333,7 @@ section { position: relative; }
 .brand:hover .brand__logo { transform: translateX(6px); }
 .brand__logo.logo-webasto { height: clamp(30px, 2.6vw, 40px); }
 .brand__logo.logo-eber { height: clamp(38px, 3.3vw, 52px); }
+.brand__logo.logo-planar { height: clamp(40px, 3.4vw, 54px); }
 .brand__type { position: relative; font-size: 14px; color: var(--muted); letter-spacing: .04em; }
 
 .marquee { margin-top: clamp(64px, 8vw, 120px); overflow: hidden; border-block: 1px solid var(--line); padding: 22px 0; }
@@ -531,6 +533,7 @@ section { position: relative; }
   .hero__brands img, .hero__brands svg { height: 19px; }
   .hero__brands .logo-webasto { height: 17px; }
   .hero__brands .logo-eber { height: 22px; }
+  .hero__brands .logo-planar { height: 23px; }
   .hero__cta { width: 100%; }
   .hero__cta .btn { flex: 1 1 100%; --h: 58px; }
   .hero__facts { grid-template-columns: 1fr 1fr; gap: 20px 0; padding-bottom: 24px; }

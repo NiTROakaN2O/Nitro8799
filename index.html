@@ -47,15 +47,17 @@
     <symbol id="i-gear" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></symbol>
     <symbol id="i-phone" viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></symbol>
     <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
-    <!-- Знак Планар — упрощённое начертание (официальный файл не предоставлен) -->
-    <symbol id="b-planar" viewBox="0 0 168 40">
-      <g transform="translate(20 20)" fill="#EDEEF0">
-        <circle r="5"/>
-        <path id="pl-blade" d="M-3 -8 3 -8 5 -17 -5 -17z"/>
-        <use href="#pl-blade" transform="rotate(60)"/><use href="#pl-blade" transform="rotate(120)"/>
-        <use href="#pl-blade" transform="rotate(180)"/><use href="#pl-blade" transform="rotate(240)"/><use href="#pl-blade" transform="rotate(300)"/>
+    <!-- Знак Планар — векторная перерисовка присланного логотипа (текст светлый для тёмного фона) -->
+    <symbol id="b-planar" viewBox="0 0 258 80">
+      <g transform="translate(1 1) scale(.72)">
+        <path d="M8 28 20 35V75L8 82Z" fill="#F3B33A"/>
+        <path d="M8 28 50 4 92 28 80 35 50 18 20 35Z" fill="#F7941D"/>
+        <path d="M92 28V80L50 104V90L80 73V35Z" fill="#EF4123"/>
+        <path d="M50 36 66 45 50 54 34 45Z" fill="#F15A24"/>
+        <path d="M34 45 50 54V104L34 95Z" fill="#D9370F"/>
+        <path d="M50 54 66 45V64L50 73Z" fill="#8A1010"/>
       </g>
-      <text x="50" y="29" font-family="Manrope, Arial, sans-serif" font-weight="800" font-size="24" fill="#EDEEF0" letter-spacing="1">ПЛАНАР</text>
+      <text x="86" y="54" font-family="Manrope, Arial, sans-serif" font-weight="700" font-size="38" fill="#EDEEF0" letter-spacing="0.5">PLANAR</text>
     </symbol>
   </svg>
 
@@ -73,7 +75,6 @@
         <a href="#services">Услуги</a>
         <a href="#brands">Системы</a>
         <a href="#process">Как работаем</a>
-        <a href="#works">Примеры работ</a>
         <a href="#faq">Вопросы</a>
         <a href="#contacts">Контакты</a>
         <a class="nav__phone-mobile" href="tel:+375296226600">+375 (29) 622-66-00</a>
@@ -122,7 +123,7 @@
         <ul class="hero__brands anim" style="--d:.65s" aria-label="Работаем с системами Webasto, Eberspächer и Планар">
           <li><img class="logo-webasto" src="assets/img/brands/webasto.png" alt="Webasto" width="757" height="150"></li>
           <li><img class="logo-eber" src="assets/img/brands/eberspaecher.png" alt="Eberspächer" width="709" height="200"></li>
-          <li><svg class="logo-planar" viewBox="0 0 168 40" role="img" aria-label="Планар"><use href="#b-planar"/></svg></li>
+          <li><svg class="logo-planar" viewBox="0 0 258 80" role="img" aria-label="Планар"><use href="#b-planar"/></svg></li>
         </ul>
 
         <div class="hero__cta anim" style="--d:.75s">
@@ -352,7 +353,7 @@
             <span class="brand__type">Airtronic · Hydronic</span>
           </li>
           <li class="brand reveal">
-            <svg class="brand__logo logo-planar" viewBox="0 0 168 40" role="img" aria-label="Планар"><use href="#b-planar"/></svg>
+            <svg class="brand__logo logo-planar" viewBox="0 0 258 80" role="img" aria-label="Планар"><use href="#b-planar"/></svg>
             <span class="brand__type">Воздушные · Бинар</span>
           </li>
         </ul>
@@ -400,8 +401,8 @@
     </section>
 
     <!-- ============ WORKS ============ -->
-    <!-- ЗАМЕНИТЬ: подставьте реальные фото и описания выполненных работ -->
-    <section class="works" id="works">
+    <!-- Раздел скрыт до появления реальных фото работ: уберите атрибут hidden, верните пункт меню и номера секций -->
+    <section class="works" id="works" hidden>
       <div class="container">
         <div class="section-head section-head--split">
           <div>
@@ -439,7 +440,7 @@
     <section class="faq" id="faq">
       <div class="container faq__inner">
         <div>
-          <span class="section-num">07 / Вопросы</span>
+          <span class="section-num">06 / Вопросы</span>
           <h2 class="section-title reveal">Частые вопросы</h2>
           <p class="section-sub reveal">Не нашли ответ? Позвоните — подскажем по телефону.</p>
         </div>
@@ -477,7 +478,7 @@
     <section class="contact" id="contacts">
       <div class="container contact__inner">
         <div class="contact__info">
-          <span class="section-num">08 / Контакты</span>
+          <span class="section-num">07 / Контакты</span>
           <h2 class="contact__title reveal">Нужна<br><em>консультация?</em></h2>
           <p class="section-sub reveal">Опишите автомобиль и проблему — перезвоним, подскажем по ремонту или обслуживанию и подберём время записи.</p>
 
