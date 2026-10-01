@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2400 1500" width="2400" height="1500">
+<defs>
+  <radialGradient id="g" cx=".7" cy=".5" r=".55">
+    <stop offset="0" stop-color="#FF4B16" stop-opacity=".38"/>
+    <stop offset=".35" stop-color="#FF4B16" stop-opacity=".08"/>
+    <stop offset="1" stop-color="#08090B" stop-opacity="0"/>
+  </radialGradient>
+  <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="#0B0C0F"/><stop offset="1" stop-color="#16181C"/>
+  </linearGradient>
+</defs>
+<rect width="2400" height="1500" fill="url(#bg)"/>
+<g stroke="#ffffff" stroke-opacity=".035" stroke-width="1"><line x1="0" y1="0" x2="0" y2="1500"/><line x1="100" y1="0" x2="100" y2="1500"/><line x1="200" y1="0" x2="200" y2="1500"/><line x1="300" y1="0" x2="300" y2="1500"/><line x1="400" y1="0" x2="400" y2="1500"/><line x1="500" y1="0" x2="500" y2="1500"/><line x1="600" y1="0" x2="600" y2="1500"/><line x1="700" y1="0" x2="700" y2="1500"/><line x1="800" y1="0" x2="800" y2="1500"/><line x1="900" y1="0" x2="900" y2="1500"/><line x1="1000" y1="0" x2="1000" y2="1500"/><line x1="1100" y1="0" x2="1100" y2="1500"/><line x1="1200" y1="0" x2="1200" y2="1500"/><line x1="1300" y1="0" x2="1300" y2="1500"/><line x1="1400" y1="0" x2="1400" y2="1500"/><line x1="1500" y1="0" x2="1500" y2="1500"/><line x1="1600" y1="0" x2="1600" y2="1500"/><line x1="1700" y1="0" x2="1700" y2="1500"/><line x1="1800" y1="0" x2="1800" y2="1500"/><line x1="1900" y1="0" x2="1900" y2="1500"/><line x1="2000" y1="0" x2="2000" y2="1500"/><line x1="2100" y1="0" x2="2100" y2="1500"/><line x1="2200" y1="0" x2="2200" y2="1500"/><line x1="2300" y1="0" x2="2300" y2="1500"/><line x1="0" y1="0" x2="2400" y2="0"/><line x1="0" y1="100" x2="2400" y2="100"/><line x1="0" y1="200" x2="2400" y2="200"/><line x1="0" y1="300" x2="2400" y2="300"/><line x1="0" y1="400" x2="2400" y2="400"/><line x1="0" y1="500" x2="2400" y2="500"/><line x1="0" y1="600" x2="2400" y2="600"/><line x1="0" y1="700" x2="2400" y2="700"/><line x1="0" y1="800" x2="2400" y2="800"/><line x1="0" y1="900" x2="2400" y2="900"/><line x1="0" y1="1000" x2="2400" y2="1000"/><line x1="0" y1="1100" x2="2400" y2="1100"/><line x1="0" y1="1200" x2="2400" y2="1200"/><line x1="0" y1="1300" x2="2400" y2="1300"/><line x1="0" y1="1400" x2="2400" y2="1400"/></g>
+<rect width="2400" height="1500" fill="url(#g)"/>
+<g stroke="#F5F5F5" stroke-opacity=".25" stroke-width="1.5" font-family="Manrope, Arial" font-size="18" fill="#92969D">
+<line x1="1185.0" y1="1023.5" x2="2115.0" y2="1023.5"/><line x1="1185.0" y1="1008.0" x2="1185.0" y2="1039.0"/><line x1="2115.0" y1="1008.0" x2="2115.0" y2="1039.0"/>
+<text x="1650" y="1070.0" text-anchor="middle" stroke="none">AIR · 2–4 kW · 12/24 V</text></g>
+<g transform="translate(1650 760) scale(1.55)" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <rect x="-300" y="-110" width="600" height="220" rx="60" stroke="#F5F5F5" stroke-opacity=".55" stroke-width="2.5" fill="#121418"/>
+  <rect x="-280" y="-90" width="560" height="180" rx="44" stroke="#F5F5F5" stroke-opacity=".12" stroke-width="1.5"/>
+  <line x1="-230" y1="-70" x2="-230" y2="70" stroke="#F5F5F5" stroke-opacity=".18" stroke-width="2"/><line x1="-208" y1="-70" x2="-208" y2="70" stroke="#F5F5F5" stroke-opacity=".18" stroke-width="2"/><line x1="-186" y1="-70" x2="-186" y2="70" stroke="#F5F5F5" stroke-opacity=".18" stroke-width="2"/><line x1="-164" y1="-70" x2="-164" y2="70" stroke="#F5F5F5" stroke-opacity=".18" stroke-width="2"/><line x1="-142" y1="-70" x2="-142" y2="70" stroke="#F5F5F5" stroke-opacity=".18" stroke-width="2"/><line x1="-120" y1="-70" x2="-120" y2="70" stroke="#F5F5F5" stroke-opacity=".18" stroke-width="2"/><line x1="-98" y1="-70" x2="-98" y2="70" stroke="#F5F5F5" stroke-opacity=".18" stroke-width="2"/><line x1="-76" y1="-70" x2="-76" y2="70" stroke="#F5F5F5" stroke-opacity=".18" stroke-width="2"/>
+  <circle cx="140" cy="0" r="78" stroke="#F5F5F5" stroke-opacity=".5" stroke-width="2.5" fill="#0c0d10"/>
+  <circle cx="140" cy="0" r="52" stroke="#FF4B16" stroke-opacity=".9" stroke-width="2.5"/>
+  <circle cx="140" cy="0" r="24" fill="#FF4B16" fill-opacity=".85"/>
+  <line x1="140" y1="0" x2="210.0" y2="0.0" stroke="#F5F5F5" stroke-opacity=".14" stroke-width="1.5"/><line x1="140" y1="0" x2="200.6" y2="35.0" stroke="#F5F5F5" stroke-opacity=".14" stroke-width="1.5"/><line x1="140" y1="0" x2="175.0" y2="60.6" stroke="#F5F5F5" stroke-opacity=".14" stroke-width="1.5"/><line x1="140" y1="0" x2="140.0" y2="70.0" stroke="#F5F5F5" stroke-opacity=".14" stroke-width="1.5"/><line x1="140" y1="0" x2="105.0" y2="60.6" stroke="#F5F5F5" stroke-opacity=".14" stroke-width="1.5"/><line x1="140" y1="0" x2="79.4" y2="35.0" stroke="#F5F5F5" stroke-opacity=".14" stroke-width="1.5"/><line x1="140" y1="0" x2="70.0" y2="-0.0" stroke="#F5F5F5" stroke-opacity=".14" stroke-width="1.5"/><line x1="140" y1="0" x2="79.4" y2="-35.0" stroke="#F5F5F5" stroke-opacity=".14" stroke-width="1.5"/><line x1="140" y1="0" x2="105.0" y2="-60.6" stroke="#F5F5F5" stroke-opacity=".14" stroke-width="1.5"/><line x1="140" y1="0" x2="140.0" y2="-70.0" stroke="#F5F5F5" stroke-opacity=".14" stroke-width="1.5"/><line x1="140" y1="0" x2="175.0" y2="-60.6" stroke="#F5F5F5" stroke-opacity=".14" stroke-width="1.5"/><line x1="140" y1="0" x2="200.6" y2="-35.0" stroke="#F5F5F5" stroke-opacity=".14" stroke-width="1.5"/>
+  <path d="M300 -40 h90 a20 20 0 0 1 20 20 v120" stroke="#F5F5F5" stroke-opacity=".35" stroke-width="10"/>
+  <path d="M-300 30 h-120 v140" stroke="#FF4B16" stroke-opacity=".55" stroke-width="3" stroke-dasharray="10 10"/>
+  <rect x="-60" y="-150" width="120" height="40" rx="8" stroke="#F5F5F5" stroke-opacity=".3" stroke-width="2" fill="#121418"/>
+  <path d="M0 -150 v-60 h220" stroke="#F5F5F5" stroke-opacity=".2" stroke-width="2"/>
+</g>
+<g font-family="Manrope, Inter, Arial, sans-serif" fill="#F5F5F5">
+  <text x="2360" y="1460" text-anchor="end" font-size="21" fill-opacity=".28" letter-spacing="3">PLACEHOLDER · ЗАМЕНИТЬ НА hero-workshop.jpg 2400×1500</text>
+</g>
+</svg>
