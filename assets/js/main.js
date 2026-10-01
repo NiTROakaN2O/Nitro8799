@@ -7,12 +7,44 @@
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   const finePointer = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
 
+  /* ---------- Заставка (класс has-intro ставится скриптом в <head>) ---------- */
+  const root = document.documentElement;
+  if (root.classList.contains('has-intro')) {
+    setTimeout(() => { const el = $('[data-intro]'); if (el) el.remove(); }, 1700);
+  }
+
+  /* ---------- Заголовки секций: разбивка на слова ---------- */
+  if (!reduceMotion) {
+    $$('.section-title.reveal, .contact__title.reveal').forEach((title) => {
+      let i = 0;
+      const walk = (node) => {
+        [...node.childNodes].forEach((child) => {
+          if (child.nodeType === 3) {
+            const frag = document.createDocumentFragment();
+            child.textContent.split(/(\s+)/).forEach((part) => {
+              if (!part) return;
+              if (/^\s+$/.test(part)) { frag.appendChild(document.createTextNode(' ')); return; }
+              const w = document.createElement('span'); w.className = 'w';
+              const inner = document.createElement('span'); inner.textContent = part; inner.style.setProperty('--i', i++);
+              w.appendChild(inner); frag.appendChild(w);
+            });
+            child.replaceWith(frag);
+          } else if (child.nodeType === 1 && child.tagName !== 'BR') walk(child);
+        });
+      };
+      walk(title);
+      title.classList.add('split');
+    });
+  }
+
   const header = $('[data-header]');
   const nav = $('[data-nav]');
   const burger = $('[data-burger]');
   const quickbar = $('[data-quickbar]');
   const hero = $('#top');
   const contacts = $('#contacts');
+  const progress = $('[data-progress]');
+  const heroInner = $('.hero__inner');
 
   /* ---------- Header + quick bar on scroll ---------- */
   let lastY = window.scrollY;
@@ -25,6 +57,15 @@
       const pastHero = y > hero.offsetHeight * 0.6;
       const atContacts = contacts.getBoundingClientRect().top < window.innerHeight * 0.6;
       quickbar.classList.toggle('is-visible', pastHero && !atContacts);
+    }
+    if (progress) {
+      const max = document.documentElement.scrollHeight - window.innerHeight;
+      progress.style.setProperty('--p', max > 0 ? (y / max).toFixed(4) : 0);
+    }
+    if (heroInner && !reduceMotion && y < hero.offsetHeight) {
+      const k = y / hero.offsetHeight;
+      heroInner.style.transform = `translate3d(0, ${(y * 0.28).toFixed(1)}px, 0)`;
+      heroInner.style.opacity = String(Math.max(0, 1 - k * 1.4));
     }
     lastY = y;
     ticking = false;
@@ -57,7 +98,7 @@
   }
 
   /* ---------- Reveal on scroll (с лёгкой лестницей внутри одного ряда) ---------- */
-  const revealEls = $$('.reveal, .step, .season');
+  const revealEls = $$('.reveal, .step, .season, .checklist li');
   if ('IntersectionObserver' in window && !reduceMotion) {
     const io = new IntersectionObserver((entries) => {
       const visible = entries.filter((e) => e.isIntersecting);
@@ -166,6 +207,20 @@
         img.style.setProperty('--py', (dy * -10).toFixed(1) + 'px');
       });
     }
+  }
+
+  /* ---------- Магнитные кнопки ---------- */
+  if (finePointer && !reduceMotion) {
+    $$('.btn--lg, .round-btn, .header .btn').forEach((btn) => {
+      btn.classList.add('magnetic');
+      btn.addEventListener('pointermove', (e) => {
+        const r = btn.getBoundingClientRect();
+        const dx = e.clientX - (r.left + r.width / 2);
+        const dy = e.clientY - (r.top + r.height / 2);
+        btn.style.transform = `translate(${(dx * 0.18).toFixed(1)}px, ${(dy * 0.3).toFixed(1)}px)`;
+      });
+      btn.addEventListener('pointerleave', () => { btn.style.transform = ''; });
+    });
   }
 
   /* ---------- Подсветка карточек симптомов за курсором ---------- */
@@ -282,10 +337,11 @@
 
       let copied = false;
       try { await navigator.clipboard.writeText(text); copied = true; } catch (err) { /* clipboard недоступен */ }
-      window.open('https://t.me/' + encodeURIComponent(form.dataset.telegram), '_blank', 'noopener');
-      setStatus(copied
-        ? 'Текст заявки скопирован — вставьте его в открывшийся чат Telegram.'
-        : 'Открываем Telegram — напишите нам или просто позвоните.', 'ok');
+      // без 'noopener' в features: с ним window.open всегда возвращает null
+      const win = window.open('https://t.me/' + encodeURIComponent(form.dataset.telegram), '_blank');
+      if (win) win.opener = null;
+      if (copied && win !== null) setStatus('Текст заявки скопирован — вставьте его в открывшийся чат Telegram.', 'ok');
+      else setStatus('Позвоните или напишите нам: +375 (29) 622-66-00' + (copied ? ' — текст заявки уже скопирован.' : '.'), 'ok');
     });
   }
 
